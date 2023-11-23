@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+i=0
+while [ $i -lt 10 ]; do
+    if [ $i -ne 9 ]; then
+        echo "hi"
+    fi
+
+    echo "Best School"
+    i=$((i + 1))
+done
