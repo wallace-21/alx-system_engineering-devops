@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+#  If 9, say Hi!
 i=0
 while [ $i -lt 10 ]; do
     if [ $i -eq 8 ]; then
