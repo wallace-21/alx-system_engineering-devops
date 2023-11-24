@@ -1,4 +1,5 @@
 #!/bin/bash
+# Bash script that displays:
 
 for file in *; do
 
