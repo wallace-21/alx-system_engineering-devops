@@ -4,6 +4,12 @@
 sudo apt-get update
 sudo apt-get install -y nginx
 
-sudo sed -i '/server_name _;/ a \\n\tadd_header X-Served-By $hostname;' /etc/nginx/sites-available/default
+file="/etc/nginx/sites-available/default"
+sudo chmod +w $file
+cmd_1="location /redirect_me {\nreturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n}"
+cmd_2="error_page 404 /custom_404.html;\nlocation = /custom_404.html {\n internal;\n root /var/www/html;\n}"
 
+sudo sed -i "47i $cmd_1" $file
+sudo sed -i "/^server {/a $cmd_2" $file
+sudo sed -i '/server_name _;/ a \\n\tadd_header X-Served-By $HOSTNAME;' $file
 sudo service nginx restart
