@@ -4,6 +4,19 @@
 apt-get update
 apt-get install haproxy
 
+haproxy_config="/etc/haproxy/haproxy.cfg"
+sudo sed -i -e '/^frontend main/,/^backend app/ { /^frontend main/,/^backend app/ !{ /^\(#\|$\)/ { d } } }' "${haproxy_config}"
+cat <<EOL | sudo tee -a "${haproxy_config}"
+
+frontend main
+    bind *:80
+    default_backend app
+
+backend app
+    balance roundrobin
+    server 253001-web-01 54.166.128.139:80 check
+    server 253001-web-02 54.210.58.153:80 check
+EOL
 sudo service haproxy restart
 
 sudo service haproxy enable
