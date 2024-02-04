@@ -6,7 +6,7 @@ sudo apt-get -y install haproxy
 sudo service haproxy start
 
 lb1="wallace lb"
-lb2="bind *:80"
+lb2="bind 0.0.0.0:80"
 lb3="balance roundrobin"
 lb4="server 253001-web-01 54.166.128.139 check"
 lb5="server 253001-web-02 54.210.58.153 check"
