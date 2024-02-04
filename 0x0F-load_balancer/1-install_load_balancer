@@ -8,5 +8,5 @@ frontend load_balancer
    default_backend allservers
 
 backend allservers
-   server 253001-web-01 54.166.128.139
-   server 253001-web-02 54.210.58.153
+   server 253001-web-01 54.166.128.139:80 check
+   server 253001-web-02 54.210.58.153:80 check
