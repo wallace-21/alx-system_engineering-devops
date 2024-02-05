@@ -5,7 +5,7 @@ sudo apt-get -y update
 sudo apt-get -y install haproxy
 sudo service haproxy start
 
-lb1="wallace lb"
+lb1="listen lb"
 lb2="bind *:80"
 lb3="mode http"
 lb4="balance roundrobin"
