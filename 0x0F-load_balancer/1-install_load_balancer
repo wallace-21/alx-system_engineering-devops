@@ -49,6 +49,6 @@ listen lb
 
 EOL
 
-sudo service haproxy enable
+sudo sed -i "\$a ENABLED=1" /etc/default/haproxy
 
 sudo service haproxy restart
