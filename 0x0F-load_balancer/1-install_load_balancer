@@ -6,21 +6,18 @@ sudo apt-get -y install haproxy
 sudo service haproxy start
 
 lb1="wallace lb"
-lb2="bind 0.0.0.0:80"
-lb3="mode http"
-lb4="balance roundrobin"
-lb5="option httpclose"
-lb6="option forwardfor"
-lb7="server 253001-web-01 54.166.128.139:80 check"
-lb8="server 253001-web-02 54.210.58.153:80 check"
+lb2="bind *:80"
+lb3="balance roundrobin"
+lb4="server 253001-web-01 54.166.128.139:80 check"
+lb5="server 253001-web-02 54.210.58.153:80 check"
 
 haproxy_default_location="/etc/default/haproxy"
 haproxy_config_file="/etc/haproxy/haproxy.cfg"
 s="\n\t"; e="\n";
 
-load_balancer_config="${lb1}${s}${lb2}${s}${lb3}${s}${lb4}${s}${lb5}${s}${lb6}${s}${lb7}${s}${lb8}${e}"
+load_balancer_config="${lb1}${s}${lb2}${s}${lb3}${s}${lb4}${s}${lb5}${e}"
 
-sudo sed -i "\$a ENABLED=1" "${haproxy_default_location}"
+sudo service haproxy enable
 
 sudo sed -i "\$a ${load_balancer_config}" "${haproxy_config_file}"
 
