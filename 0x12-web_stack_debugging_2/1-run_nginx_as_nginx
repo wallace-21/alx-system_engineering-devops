@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+sudo service nginx stop
+
+sudo sed -i 's/user\s*[^;]*/user nginx;/' /etc/nginx/nginx.conf
+
+sudo sed -i 's/listen\s*[^;]*;/listen 8080;/g' /etc/nginx/sites-available/default
+
+sudo service nginx start
