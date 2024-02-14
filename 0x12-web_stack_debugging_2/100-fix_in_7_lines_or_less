@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#7 lines or less
 
 sudo service nginx stop
 sudo sed -i 's/user\s*[^;]*/user nginx;/' /etc/nginx/nginx.conf
