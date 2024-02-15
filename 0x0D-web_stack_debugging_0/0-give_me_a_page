@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 #get Apache to run
 
+sudo apt install apache2
 sudo service apache2 start
