@@ -7,9 +7,9 @@ get_info() {
 }
 if [ $# == 1 ]; then
     get_info "$1" "www"
-    get_info "$1" "lb-01"
-    get_info "$1" "web-01"
-    get_info "$1" "web-02"
+    get_info "$2" "lb-01"
+    get_info "$3" "web-01"
+    get_info "$4" "web-02"
 elif [ $# == 2 ]; then
 	get_info "$2.$1" "$2"
 fi
