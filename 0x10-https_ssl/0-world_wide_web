@@ -7,7 +7,7 @@ get_info() {
 }
 if [ $# == 2 ]
 then
-    get_info "$2.$1" "$2"
+    get_info "$2.$1" "$1.$2"
 else
     get_info "$1" "www"
     get_info "$1" "lb-01"
