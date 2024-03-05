@@ -12,12 +12,10 @@ def number_of_subscribers(subreddit):
     headers = {'User-Agent': 'your_user_agent'}
     response = requests.get(api_url, headers=headers, allow_redirects=False)
 
-    if response.status_code == 200:
+    subreddit_info = response.json().get('data')
 
-        subreddit_info = response.json().get('data', {}).get('subscribers', 0)
-
-        return subreddit_info
-
-    elif response.status_code == 404:
+    if response.status_code == 404:
 
         return (0)
+
+    return subreddit_info.get('subscribers')
