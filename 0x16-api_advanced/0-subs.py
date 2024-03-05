@@ -2,15 +2,15 @@
 
 """imports a module to retrieve info"""
 import requests
-import sys
+
 
 def number_of_subscribers(subreddit):
     """function that queries the Reddit API
     and returns the number of subscribers"""
-    sys.process(
     api_url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
 
-    response = requests.get(api_url, headers={'User-Agent': 'your_user_agent'}, allow_redirects=False)
+    response = requests.get(api_url, headers={'User-Agent': 'your_user_agent'},
+                            allow_redirects=False)
 
     if response.status_code == 200:
         subreddit_info = response.json().get('data', {}).get('subscribers', 0)
