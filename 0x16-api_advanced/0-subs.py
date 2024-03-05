@@ -7,20 +7,17 @@ import requests
 def number_of_subscribers(subreddit):
     """function that queries the Reddit API
     and returns the number of subscribers"""
-    api_url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
 
-    response = requests.get(api_url, headers={'User-Agent': 'your_user_agent'},
-                            allow_redirects=False)
+    api_url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    headers = {'User-Agent': 'your_user_agent'}
+    response = requests.get(api_url, headers=headers, allow_redirects=False)
 
     if response.status_code == 200:
+
         subreddit_info = response.json().get('data', {}).get('subscribers', 0)
 
         return subreddit_info
 
     elif response.status_code == 404:
-
-        return (0)
-
-    elif response.status_code == 302:
 
         return (0)
