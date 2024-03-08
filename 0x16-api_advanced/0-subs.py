@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """imports a module to retrieve info"""
 import requests
 
@@ -17,5 +16,5 @@ def number_of_subscribers(subreddit):
     if response.status_code == 404:
 
         return (0)
-
-    return subreddit_info.get('subscribers')
+    else:
+        return subreddit_info.get('subscribers')
