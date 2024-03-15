@@ -73,7 +73,11 @@ return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
                 proxy_pass http://127.0.0.1:5002;
         }
 
+	location / {
+                proxy_pass http://127.0.0.1:5003/2-hbnb;
+        }
         # pass PHP scripts to FastCGI server
+        #
         #
         #location ~ \.php$ {
         #       include snippets/fastcgi-php.conf;
