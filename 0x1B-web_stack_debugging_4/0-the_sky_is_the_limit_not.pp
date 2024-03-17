@@ -7,5 +7,5 @@
 
   exec {'Restart_ngunx':
     command => '/etc/init.d/nginx restart',
-    path    => '/etc/init.d',
+    path    => '/etc/init.d/',
 }
