@@ -1,7 +1,7 @@
 #Trying to increse the number of requests taken
 
   exec { 'Trying_to_increase_requests':
-    command => '/bin/sed -i "s/15/4096" /etc/nginx/default/nginx'.
+    command => '/bin/sed -i /etc/nginx/default/nginx'.
     path    => 'usr/local/bin/:/bin/'
 }
 
